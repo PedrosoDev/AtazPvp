@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:java8
+    container_name: minecraft_server
+    depends_on:
+      - database
+    ports:
+      - 25565:25565
+      - 25575:25575
+    environment:
+      EULA: "TRUE"
+      TYPE: "CUSTOM"
+      VERSION: "1.8.8"
+      CUSTOM_SERVER: "paper.jar"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - ./server:/data
+
+  database:
+    image: mariadb
+    container_name: minecraft_mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/mysql/data
+    environment:
+      MARIADB_DATABASE: minecraft_server
+      MARIADB_ROOT_PASSWORD: 123456

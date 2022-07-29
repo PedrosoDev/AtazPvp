@@ -1,0 +1,4 @@
+name: AtazPvp
+version: '${project.version}'
+main: com.github.pedrosodev.atazpvp.AtazPvp
+authors: [ PedrosoDev ]

@@ -1,0 +1,11 @@
+account,status player:jogador? {
+    help Mostra o status da conta.
+    user player
+    hook account
+}
+
+scoreboard,score {
+    help Habilita ou desabilita a scoreboard.
+    user player
+    hook scoreboard
+}
